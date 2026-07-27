@@ -1,0 +1,62 @@
+{
+  "SKILL_EXISTS": {
+    "user_message": "Skill directory already exists: {path}. Use --force to overwrite.",
+    "retry": false,
+    "fallback_action": "ask_user_for_force",
+    "severity": "error"
+  },
+  "VALIDATION_FAILED": {
+    "user_message": "Skill validation failed: {reason}",
+    "retry": false,
+    "fallback_action": "show_validation_errors",
+    "severity": "error"
+  },
+  "SKILL_MD_NOT_FOUND": {
+    "user_message": "SKILL.md not found in {path}. Every skill must have SKILL.md.",
+    "retry": false,
+    "fallback_action": "scaffold_skill_first",
+    "severity": "error"
+  },
+  "MANIFEST_NOT_FOUND": {
+    "user_message": "manifest.json not found in {path}. Gold Standard requires manifest.json. Run new_skill.py to scaffold.",
+    "retry": false,
+    "fallback_action": "scaffold_manifest",
+    "severity": "warning"
+  },
+  "INVALID_FRONTMATTER": {
+    "user_message": "SKILL.md has invalid YAML frontmatter: {detail}",
+    "retry": false,
+    "fallback_action": "show_yaml_error",
+    "severity": "error"
+  },
+  "NAME_TOO_LONG": {
+    "user_message": "Skill name '{name}' is {length} characters. Maximum is 64.",
+    "retry": false,
+    "fallback_action": "suggest_shorter_name",
+    "severity": "error"
+  },
+  "SUBAGENT_FAILED": {
+    "user_message": "Subagent task failed for eval {eval_id}. Check logs.",
+    "retry": true,
+    "fallback_action": "retry_with_backoff",
+    "severity": "warning"
+  },
+  "BENCHMARK_EMPTY": {
+    "user_message": "No benchmark results found. All subagent runs may have failed.",
+    "retry": false,
+    "fallback_action": "check_subagent_logs",
+    "severity": "error"
+  },
+  "PACKAGE_FAILED": {
+    "user_message": "Failed to package skill: {reason}",
+    "retry": false,
+    "fallback_action": "check_disk_space_and_permissions",
+    "severity": "error"
+  },
+  "DESCRIPTION_TOO_LONG": {
+    "user_message": "Description is {length} characters. Maximum is 1024.",
+    "retry": false,
+    "fallback_action": "truncate_description",
+    "severity": "warning"
+  }
+}

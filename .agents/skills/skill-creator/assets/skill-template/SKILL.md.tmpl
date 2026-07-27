@@ -1,0 +1,38 @@
+---
+name: {{NAME}}
+description: >-
+  {{DESC}} Make sure to use this skill whenever the user
+  [[FILL: concrete phrasings, contexts, and file types that should trigger it —
+  casual wording and near-synonyms, in the user's languages]]. Be a little pushy:
+  trigger even when the user does not name the skill but clearly needs it. Do NOT
+  use for [[FILL: adjacent task]] — use [[FILL: sibling-skill]] instead.
+---
+
+# {{TITLE}}
+
+[[FILL: what this skill does and the outcome the user gets; explain the *why*.]]
+
+## When to use
+[[FILL: trigger conditions in prose with real user phrasings.]]
+
+## Workflow
+1. [[FILL: gather/resolve inputs.]]
+2. [[FILL: core step; if repetitive or must be byte-identical, run the helper:]]
+   ```bash
+   python scripts/run.py [[FILL: args]]
+   ```
+3. [[FILL: format output using assets/templates/output.md.]]
+
+## Output format
+ALWAYS follow `assets/templates/output.md`.
+
+## When NOT to use this skill (scope guard)
+- **[[FILL: adjacent task A]]** → use `[[FILL: sibling-skill-A]]`.
+- **[[FILL: adjacent task B]]** → use `[[FILL: sibling-skill-B]]`.
+- [[FILL: read-only / destructive-action boundaries.]]
+
+## Reference files
+- `references/reference.md` — [[FILL: deep detail; read when …]].
+- `assets/templates/output.md` — canonical output shape.
+- `evals/evals.json` — test prompts; hand to `skill-creator` to benchmark.
+- `CHANGELOG.md` — history of what changed and why.

@@ -1,0 +1,29 @@
+{
+  "id": "skill-creator",
+  "name": "Skill Creator (Gold Standard)",
+  "version": "2.0.0",
+  "author": "Hermes Agent",
+  "license": "MIT",
+  "runtime": {
+    "min_model_tier": "sonnet-class",
+    "context_window_required": 32000,
+    "languages": ["en", "tr"]
+  },
+  "entry_point": "src/main.py",
+  "tools": [],
+  "dependencies": {
+    "python": ">=3.11",
+    "packages": ["pyyaml>=6.0"]
+  },
+  "evals": {
+    "pass_rate": null,
+    "last_run": null
+  },
+  "tags": ["skills", "authoring", "evaluation", "benchmarking", "testing", "skill-creator", "conventions", "gold-standard", "meta"],
+  "security": {
+    "allow_network": false,
+    "allow_file_write": true,
+    "blocked_paths": ["/etc", "/sys", "~/.ssh"],
+    "max_cost_per_call": 5.0
+  }
+}

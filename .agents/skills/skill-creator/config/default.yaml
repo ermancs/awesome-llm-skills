@@ -1,0 +1,25 @@
+# Skill Creator — Default Configuration
+# See config/schema.json for the full schema.
+
+skill:
+  name: skill-creator
+  max_iterations: 10
+  timeout_seconds: 600
+
+sampling:
+  default_size: 3
+  max_size: 10
+
+output:
+  max_recommendations: 7
+  language: en
+  format: markdown
+
+safety:
+  allow_network: false
+  allow_file_write: true
+  blocked_paths:
+    - /etc
+    - /sys
+    - ~/.ssh
+  max_cost_per_call: 10.0

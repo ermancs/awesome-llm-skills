@@ -1,0 +1,33 @@
+{
+  "skill_name": "{{NAME}}",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "[[FILL: a realistic prompt that SHOULD trigger and exercise this skill.]]",
+      "expected_output": "[[FILL: what a good result looks like.]]",
+      "files": [],
+      "assertions": [
+        {
+          "name": "produces_expected_artifact",
+          "text": "[[FILL: objective, verifiable check.]]"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "[[FILL: a second, harder / differently-phrased prompt.]]",
+      "expected_output": "[[FILL: expected result.]]",
+      "files": [],
+      "assertions": [
+        { "name": "[[FILL: name]]", "text": "[[FILL: objective check.]]" }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "[[FILL: an edge / near-miss case for tuning triggering + scope.]]",
+      "expected_output": "[[FILL: expected result.]]",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}

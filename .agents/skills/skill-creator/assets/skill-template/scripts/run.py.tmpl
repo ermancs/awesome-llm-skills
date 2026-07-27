@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+"""run.py — deterministic helper for the {{NAME}} skill (pillar 3).
+
+Put here any step that is repetitive, error-prone by hand, or must be
+byte-identical every run. Standard library only (Cowork can't pip-install at
+runtime). Replace the placeholder logic with the skill's real work.
+"""
+from __future__ import annotations
+
+import argparse
+
+
+def run(args: argparse.Namespace) -> int:
+    # [[FILL: real deterministic logic here.]]
+    print(f"[{{NAME}}] run.py stub — implement me. input={args.input!r}")
+    return 0
+
+
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser(description="Deterministic helper for {{NAME}}.")
+    p.add_argument("--input", help="[[FILL: describe the input.]]")
+    return run(p.parse_args(argv))
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

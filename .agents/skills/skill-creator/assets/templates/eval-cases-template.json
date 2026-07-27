@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Enterprise Skill Evaluation Suite",
+  "version": "1.0.0",
+  "description": "Comprehensive test matrix for quantitative benchmark, assertion grading, and trigger accuracy evaluation.",
+  "eval_config": {
+    "target_skill": "analyzing-example-workflow",
+    "runs_per_case": 3,
+    "max_iterations": 5,
+    "pass_threshold": 0.90
+  },
+  "test_cases": [
+    {
+      "id": "eval-pos-001",
+      "category": "positive_trigger",
+      "name": "Explicit Skill Trigger Verification",
+      "prompt": "Run data processing on target_file.csv and output a summary report.",
+      "expected_behavior": "Skill triggers automatically and generates target_file_summary.md",
+      "assertions": [
+        {
+          "id": "assert-01",
+          "type": "skill_triggered",
+          "expected": true
+        },
+        {
+          "id": "assert-02",
+          "type": "file_exists",
+          "target": "target_file_summary.md"
+        },
+        {
+          "id": "assert-03",
+          "type": "regex_match",
+          "target_file": "target_file_summary.md",
+          "pattern": "(?i)# Data Processing Summary"
+        }
+      ]
+    },
+    {
+      "id": "eval-neg-002",
+      "category": "negative_trigger",
+      "name": "Undertriggering & Scope Boundaries Check",
+      "prompt": "What is the current time in Istanbul?",
+      "expected_behavior": "Skill MUST NOT trigger for unrelated user queries.",
+      "assertions": [
+        {
+          "id": "assert-04",
+          "type": "skill_triggered",
+          "expected": false
+        }
+      ]
+    },
+    {
+      "id": "eval-edge-003",
+      "category": "edge_case",
+      "name": "Missing File Path Handling",
+      "prompt": "Process data for nonexistent_file.csv",
+      "expected_behavior": "Skill triggers, detects missing file gracefully, and requests correct path without crashing.",
+      "assertions": [
+        {
+          "id": "assert-05",
+          "type": "exit_code",
+          "expected": 0
+        },
+        {
+          "id": "assert-06",
+          "type": "response_contains",
+          "substring": "File not found"
+        }
+      ]
+    }
+  ]
+}
